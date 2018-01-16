@@ -1,4 +1,6 @@
 var checkNetWork = require("../../utils/CheckNetWork.js")
+var serviceUrl ="http://localhost:8080/parkAlipayTrade/";
+//var serviceUrl ="https://www.kangguole.com.cn/parkAlipayTrade/";
 Page({
   /**
    * 页面的初始数据
@@ -30,14 +32,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  /**
+  
 
     var self = this;
     if (!checkNetWork.checkNetWorkStatu()) {
       console.log('网络错误')
       return false;
     } else {
-      wx.request({
+     /** wx.request({
         url: 'https://www.kangguole.com.cn/parkAlipayTrade/parkAlipayTrade/weixinQueryCarNumber',
         data: {
           outParkingId: '10230',
@@ -61,8 +63,9 @@ Page({
           })
         }
       })
+      **/
     }
-  */
+
   },
   /**
    * 输入框显示键盘状态
@@ -201,13 +204,13 @@ Page({
           })
         } else {
           wx.request({
-            url: 'https://www.kangguole.com.cn/parkAlipayTrade/parkAlipayTrade/weixinQueryCarNumber',
+            url:  serviceUrl+'parkAlipayTrade/weixinQueryCarNumber',
             data: {
               outParkingId: '10230',
               carNumber: self.data.textValue
             },
-            header: {
-              'content-type': 'application/x-www-form-urlencoded'
+            header: { 
+              'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
             },
             success: function (res) {
               var response = res.data.data;
