@@ -1,7 +1,5 @@
-// keyboard.js
 var checkNetWork = require("../../utils/CheckNetWork.js")
 Page({
-
   /**
    * 页面的初始数据
    * keyboard1:首页键盘,显示省的简称
@@ -32,15 +30,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+  /**
+
     var self = this;
     if (!checkNetWork.checkNetWorkStatu()) {
       console.log('网络错误')
       return false;
     } else {
       wx.request({
-        url: 'https://parkinglot.qqdayu.com/parking/home',
+        url: 'https://www.kangguole.com.cn/parkAlipayTrade/parkAlipayTrade/weixinQueryCarNumber',
         data: {
-          textValue: self.data.textValue
+          outParkingId: '10230',
+          carNumber: self.data.textValue
         },
         header: {
           'content-type': 'application/x-www-form-urlencoded'
@@ -61,6 +62,7 @@ Page({
         }
       })
     }
+  */
   },
   /**
    * 输入框显示键盘状态
@@ -171,6 +173,9 @@ Page({
    */
   tapSpecBtn: function (e) {
     var self = this;
+    console.log('点击完成');
+    console.log(self.data.textValue);
+
     if (self.data.flag) {
       return false
     }
@@ -196,10 +201,10 @@ Page({
           })
         } else {
           wx.request({
-            url: 'https://parkinglot.qqdayu.com/parking/get_charge_bill',
-            method: 'post',
+            url: 'https://www.kangguole.com.cn/parkAlipayTrade/parkAlipayTrade/weixinQueryCarNumber',
             data: {
-              plateNo: self.data.textValue
+              outParkingId: '10230',
+              carNumber: self.data.textValue
             },
             header: {
               'content-type': 'application/x-www-form-urlencoded'
