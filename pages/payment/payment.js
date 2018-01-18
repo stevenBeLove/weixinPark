@@ -1,4 +1,8 @@
 // payment.js
+/***
+ * 支付文档
+ * https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-pay.html#wxrequestpaymentobject
+ */
 var checkNetWork = require("../../utils/CheckNetWork.js")
 var app = getApp()
 Page({

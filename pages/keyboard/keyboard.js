@@ -213,6 +213,8 @@ Page({
               'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
             },
             success: function (res) {
+              console.log("test");
+              console.log(res.data.success);
               var response = res.data.data;
               if (res.data.errorCode == 0) {
                 //说明请求成功了,跳转到支付页面
